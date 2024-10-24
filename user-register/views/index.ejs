@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+</head>
+<body>
+    <h1>User Registration</h1>
+    <form action="/register" method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="file" name="files" multiple required />
+        <button type="submit">Register</button>
+    </form>
+
+    <h2>Uploaded Files</h2>
+    <ul>
+        <% users.forEach(user => { %>
+            <li><strong><%= user.name %></strong> (<%= user.email %>)</li>
+            <ul>
+                <% user.files.forEach(file => { %>
+                    <li>
+                        <a href="/download/<%= file %>"><%= file %></a>
+                    </li>
+                <% }) %>
+            </ul>
+        <% }) %>
+    </ul>
+</body>
+</html>

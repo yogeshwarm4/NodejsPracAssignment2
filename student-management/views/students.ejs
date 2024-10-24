@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students</title>
+</head>
+<body>
+  <h2>Students List</h2>
+  <a href="/students/add">Add Student</a> | <a href="/logout">Logout</a>
+  <ul>
+    <% students.forEach(student => { %>
+      <li>
+        <%= student.name %> - <%= student.email %> - <%= student.course %>
+        <a href="/students/edit/<%= student._id %>">Edit</a> |
+        <a href="/students/delete/<%= student._id %>">Delete</a>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>

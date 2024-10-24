@@ -1,0 +1,12 @@
+<h2>Create Product</h2>
+<form action="/products" method="POST" enctype="multipart/form-data">
+    <input type="text" name="name" placeholder="Product Name" required />
+    <input type="number" name="price" placeholder="Product Price" required />
+    <select name="category" required>
+        <% categories.forEach(function(category) { %>
+            <option value="<%= category._id %>"><%= category.name %></option>
+        <% }) %>
+    </select>
+    <input type="file" name="images" multiple required />
+    <button type="submit">Create Product</button>
+</form>

@@ -1,0 +1,14 @@
+<h2>Products List</h2>
+<% products.forEach(function(product) { %>
+    <div>
+        <h3><%= product.name %> ($<%= product.price %>)</h3>
+        <p>Category: <%= product.category.name %></p>
+        <img src="/products/<%= product.images[0] %>" alt="Product Image" width="100">
+        <form action="/products/<%= product._id %>/edit" method="GET">
+            <button type="submit">Edit</button>
+        </form>
+        <form action="/products/<%= product._id %>/delete" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+<% }) %>
